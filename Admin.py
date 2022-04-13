@@ -115,7 +115,7 @@ def accept_reject_app():
                                 sheet_members.cell(row=current_row + 1, column=column).value = applications[i][
                                     'Address']
                                 # save the file
-                                members_document.save('C:NSO_assets\\NSO_members.xlsx')
+                                members_document.save('C:NSO_members.xlsx')
                                 members.append(applications[i])
                                 succ = Frame()
                                 succ.configure(background='light grey')
