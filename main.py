@@ -1,6 +1,5 @@
 from the_system import *
 # create a GUI window and its parameters
-new_user = 'False'
 def new_member():
     print('f')
     import register
