@@ -117,7 +117,7 @@ def insert():
         column_get();sheet.cell(row=current_row + 1, column=column).value = phone_n_field.get()
         column_get(); sheet.cell(row=current_row + 1, column=column).value = address_field.get()
         # save the file
-        applications_document.save('C:NSO_assets\\NSO_members.xlsx')
+        applications_document.save('C:NSO_members.xlsx')
         # Reset the focus to the first name field
         first_name_field.focus_set()
         # clear the field
