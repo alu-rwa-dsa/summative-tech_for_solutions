@@ -7,7 +7,7 @@ summative-tech_for_solutions created by GitHub Classroom
    if it's not Install tkinter (pip install tkinter)
 2. Make sure openpyxl is installed
    if it's not Install openpyxl (pip install openpyxl)
-3. Run the main.py file to register for NSO membership
+3. Run the setup.py file to start running the app
 
 NB: In order for the application to be submitted correctly, check if the file .xlsx files are not open
 
