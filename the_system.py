@@ -8,8 +8,8 @@ import queue
 import random
 admin_passcode = 9043
 # create the document variable
-applications_document = load_workbook('C:NSO_assets\\NSO_applications.xlsx')
-members_document = load_workbook('C:NSO_assets\\NSO_members.xlsx')
+applications_document = load_workbook('NSO_applications.xlsx')
+members_document = load_workbook('NSO_members.xlsx')
 #an excel function to handle the excel document
 applications = [{'form number': 453, 'first name': 'Alec', 'Middle name': '', 'Last name': 'Dumbuya', 'Gender': 'male',
                  'Email ID': 'gd.gmail.com', 'Phone number': '0785963843', 'Address': 'Kicukiro, Kigali', 'Occupation': 'student'},
