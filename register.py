@@ -55,13 +55,13 @@ def excel():
         global position
         position = position + 1
         sheet.cell(row=1, column=position).value = i
-        applications_document.save('NSO_assets\\NSO_applications.xlsx')
+        applications_document.save('NSO_applications.xlsx')
     # sizing the columns width to meet the input's length
     def size_sheet():
         for value in range(1,len(columns_names)+1):
             sheet.column_dimensions[columns_names[value-1]].width = 30
     size_sheet()
-    applications_document.save('NSO_assets\\NSO_members.xlsx')
+    applications_document.save('NSO_members.xlsx')
     # Function to set focus (cursor)
 def focus_first_name(): global first_name_field; first_name_field.focus_set()
 def focus_middle_name(): middle_name_field.focus_set()
@@ -106,7 +106,7 @@ def insert():
             sheet.cell(row=current_row + 1, column=column).value = details[ins]
             column_get()
         # save the file
-        applications_document.save('NSO_assets\\NSO_members.xlsx')
+        applications_document.save('NSO_members.xlsx')
         messagebox.showinfo("Application status","Your application has been successfully submitted")
         print_details()
         # Reset the focus to the first name field
