@@ -1,5 +1,4 @@
 from the_system import *
-Admin_ch = ['1. Reject application', '2. Accept Application']
 # Create a clean sheet of members in the members document
 sheet_members = members_document.active
 
@@ -115,7 +114,7 @@ def accept_reject_app():
                                 sheet_members.cell(row=current_row + 1, column=column).value = applications[i][
                                     'Address']
                                 # save the file
-                                members_document.save('NSO_assets\\NSO_members.xlsx')
+                                members_document.save('NSO_members.xlsx')
                                 members.append(applications[i])
                                 succ = Frame()
                                 succ.configure(background='light grey')
