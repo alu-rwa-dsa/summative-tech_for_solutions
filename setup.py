@@ -1,11 +1,10 @@
 import the_system
 from the_system import *
-#the_system.fetch_app_data()
-#the_system.fetch_member_data()
+the_system.fetch_app_data()
+the_system.fetch_member_data()
 # create a GUI window and its parameters
 new_user = 'False'
 def new_member():
-    print('f')
     import register
     register.gui_f()
 
