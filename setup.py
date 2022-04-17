@@ -17,6 +17,9 @@ def navigation():
         adm_login = Frame()
         adm_login.configure(background="purple")
         adm_login.place(x=100,y=50,width=300,height=200)
+        back = Button(adm_login, text="back", command=navigation)
+        back.pack()
+        back.place(x=20, y=20)
         free_space = Label(adm_login, text="", background='purple')
         free_space.pack()
         heading = Label(adm_login, text="Enter Passcode for Authorisation", background='purple');
