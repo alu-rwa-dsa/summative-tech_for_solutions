@@ -2,29 +2,21 @@ from the_system import *
 # Create a clean sheet of members in the members document
 sheet_members = members_document.active
 
-
+details = {'form number': '', 'first name': '', 'Middle name': '', 'Last name': '', 'Gender': '',
+           'Email ID': '', 'Phone number': '', 'Address': '', 'Occupation': ''}
 def excel():
+    col = 0
     # creating the titles
-    sheet_members.cell(row=1, column=1).value = "Form Number"
-    sheet_members.cell(row=1, column=2).value = "First Name"
-    sheet_members.cell(row=1, column=3).value = "Middle Name"
-    sheet_members.cell(row=1, column=4).value = "Last Name"
-    sheet_members.cell(row=1, column=5).value = "Email ID"
-    sheet_members.cell(row=1, column=6).value = "Phone number"
-    sheet_members.cell(row=1, column=7).value = "Address"
-    sheet_members.cell(row=1, column=8).value = "Occupation"
-
+    for det in details:
+        col = col + 1
+        sheet_members.cell(row=1, column=col).value = det
     # sizing the columns width to meet the input's length
+    dimensions = {'A': 10, 'B': 20, 'C': 20, 'D': 10, 'E': 20, 'F': 20, 'G': 20, 'H': 20, 'I': 20}
     def size_sheet():
-        sheet_members.column_dimensions['A'].width = 30
-        sheet_members.column_dimensions['B'].width = 30
-        sheet_members.column_dimensions['C'].width = 30
-        sheet_members.column_dimensions['D'].width = 30
-        sheet_members.column_dimensions['E'].width = 40
-        sheet_members.column_dimensions['F'].width = 20
-        sheet_members.column_dimensions['G'].width = 20
-
+        for dim in dimensions:
+            sheet_members.column_dimensions[dim].width = dimensions[dim]
     size_sheet()
+    members_document.save('NSO_members.xlsx')
 
 
 def accept_reject_app():
@@ -186,6 +178,7 @@ def adm_nav():
         font_heading = ("Book Antiqua", 15, "bold")
         heading = Label(view_app, text='NSO submitted applications', background='light grey', font=font_heading)
         heading.pack()
+        print(applications)
         for i in range(len(applications)):
             form_n = 'Application number: ' + str(applications[i]['form number'])
             names = (applications[i]['first name'] + ' ' + applications[i]['Last name'])
