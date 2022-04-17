@@ -107,7 +107,7 @@ def insert():
             column = column + 1
             sheet.cell(row=current_row, column=column).value = app_details[ins]
         # save the file
-        applications_document.save('NSO_members.xlsx')
+        applications_document.save('NSO_applications.xlsx')
         messagebox.showinfo("Application status", "Your application has been successfully submitted")
         print_details()
         # Reset the focus to the first name field
