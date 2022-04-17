@@ -25,27 +25,27 @@ def create_form_number():
                     break
             except ValueError:
                 pass
-
+app_details = {'form number': '', 'first name': '', 'Middle name': '', 'Last name': '', 'Gender': '',
+               'Email ID': '', 'Phone number': '', 'Address': '', 'Occupation': ''}
 def details_add():
-    for i in details:
-        try:
-            details['form number'] = form_number
-            details['first name'] = first_name_field.get()
-            details['Middle name'] = middle_name_field.get()
-            details['Last name'] = last_name_field.get()
-            details['Gender'] = gender_field.get()
-            details['Email ID'] = Email_ID_field.get()
-            details['Phone number'] = phone_n_field.get()
-            details['Address'] = address_field.get()
-            details['Occupation'] = occupation_field.get()
-        except TclError:
-            pass
-    applications.append(details)
+    try:
+        app_details['form number'] = form_number
+        app_details['first name'] = first_name_field.get()
+        app_details['Middle name'] = middle_name_field.get()
+        app_details['Last name'] = last_name_field.get()
+        app_details['Gender'] = gender_field.get()
+        app_details['Email ID'] = Email_ID_field.get()
+        app_details['Phone number'] = phone_n_field.get()
+        app_details['Address'] = address_field.get()
+        app_details['Occupation'] = occupation_field.get()
+    except TclError:
+        pass
+    applications.append(app_details)
 def print_details():
     print("Details of the just submitted application")
     f = 1
-    for x in details:
-        print("%s. %s: %s" %(f, x, details[x]))
+    for x in app_details:
+        print("%s. %s: %s" %(f, x, app_details[x]))
         f = f+1
 
 position = 0
@@ -94,20 +94,21 @@ def insert():
         messagebox.showinfo('Data incomplete', 'Missing relevant details')
     else:
         # write methods into the excel sheet
-        current_row = sheet.max_row
-        current_column = sheet.max_column
-        global column
-        column = 1
-        def column_get():
-            global column
+        column = 0
+        cur_row = 1
+        row_view = 0
+        while row_view == 0:
+            cur_row = cur_row + 1
+            value = sheet.cell(row=cur_row, column=1).value
+            if value is None:
+                row_view = 1
+        current_row = cur_row
+        for ins in app_details:
             column = column + 1
-
-        for ins in details:
-            sheet.cell(row=current_row + 1, column=column).value = details[ins]
-            column_get()
+            sheet.cell(row=current_row, column=column).value = app_details[ins]
         # save the file
         applications_document.save('NSO_members.xlsx')
-        messagebox.showinfo("Application status","Your application has been successfully submitted")
+        messagebox.showinfo("Application status", "Your application has been successfully submitted")
         print_details()
         # Reset the focus to the first name field
         first_name_field.focus_set()
@@ -116,7 +117,6 @@ def insert():
 
 # Run the code
 # create a GUI window and its parameters
-
 
 def gui_f():
     root = Tk();
